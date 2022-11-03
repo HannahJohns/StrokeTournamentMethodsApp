@@ -1,0 +1,61 @@
+
+/* Define background colours for counterfactual approach matrix*/
+/* Green corresponds to improvement, red corresponds to patients getting worse*/
+
+:root {
+  --green: #90f5a8;
+  --red: #f59a90;
+}
+
+#scaled { width:500px; max-width:100%; height:auto;}
+
+#sg_0_1 { background-color: var(--red); }
+#sg_0_2 { background-color: var(--red);}
+#sg_0_3 { background-color: var(--red);}
+#sg_0_4 { background-color: var(--red);}
+#sg_0_5 { background-color: var(--red);}
+#sg_0_6 { background-color: var(--red);}
+
+#sg_1_0 { background-color: var(--green);}
+#sg_1_2 { background-color: var(--red);}
+#sg_1_3 { background-color: var(--red);}
+#sg_1_4 { background-color: var(--red);}
+#sg_1_5 { background-color: var(--red);}
+#sg_1_6 { background-color: var(--red);}
+
+#sg_2_0 { background-color: var(--green);}
+#sg_2_1 { background-color: var(--green);}
+#sg_2_3 { background-color: var(--red);}
+#sg_2_4 { background-color: var(--red);}
+#sg_2_5 { background-color: var(--red);}
+#sg_2_6 { background-color: var(--red);}
+
+#sg_3_0 { background-color: var(--green);}
+#sg_3_1 { background-color: var(--green);}
+#sg_3_2 { background-color: var(--green);}
+#sg_3_4 { background-color: var(--red);}
+#sg_3_5 { background-color: var(--red);}
+#sg_3_6 { background-color: var(--red);}
+
+#sg_4_0 { background-color: var(--green);}
+#sg_4_1 { background-color: var(--green);}
+#sg_4_2 { background-color: var(--green);}
+#sg_4_3 { background-color: var(--green);}
+#sg_4_5 { background-color: var(--red);}
+#sg_4_6 { background-color: var(--red);}
+
+#sg_5_0 { background-color: var(--green);}
+#sg_5_1 { background-color: var(--green);}
+#sg_5_2 { background-color: var(--green);}
+#sg_5_3 { background-color: var(--green);}
+#sg_5_4 { background-color: var(--green);}
+#sg_5_6 { background-color: var(--red);}
+
+#sg_6_0 { background-color: var(--green);}
+#sg_6_1 { background-color: var(--green);}
+#sg_6_2 { background-color: var(--green);}
+#sg_6_3 { background-color: var(--green);}
+#sg_6_4 { background-color: var(--green);}
+#sg_6_5 { background-color: var(--green);}
+
+
