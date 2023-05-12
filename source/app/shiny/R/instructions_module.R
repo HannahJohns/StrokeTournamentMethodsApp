@@ -12,6 +12,10 @@ instructions_module <- function(id) {
                                "You can show and hide this information by clicking \"Help\" above."
                                , style="info")
     ),
+    h2("Downloadable version"),
+    "An offline version of this tool can be downloaded from ",
+    tags$a("here",href="https://github.com/HannahJohns/StrokeTournamentMethodsApp/releases",target="_blank"),
+    ". Please note that the downloadable version of the tool only works on Windows.",
     h2("Plots"),
     "Please note that for security purposes, this calculator does not produce
     scaleable images in .tiff, .eps, .pdf or similar formats.
@@ -27,7 +31,7 @@ instructions_module <- function(id) {
     tags$em("Dr. Guillaume Turc"),tags$br(),
     tags$em("Prof. Leonid Churilov"),
     h2("Resources and Contact Information"),
-    tags$a(href="https://github.com/HannahJohns/StrokeTournamentMethodsApp","Link to github"), tags$br(),
+    tags$a(href="https://github.com/HannahJohns/StrokeTournamentMethodsApp",target="_target","Link to github"), tags$br(),
     # "Link to paper",tags$br(),
     tags$br(),
     tags$a(href="mailto:hannah.johns@unimelb.edu.au","hannah.johns@unimelb.edu.au")

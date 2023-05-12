@@ -23,7 +23,7 @@ ui <- fluidPage(
     # Application title
     titlePanel("Tournament Methods for Stroke Research"),
     fluidRow(column(width=12,
-                    tags$h4(tags$em("Developed by the Australian Stroke Alliance"))
+                    tags$h4(tags$em("Developed by the ", tags$a("Australian Stroke Alliance",href="https://austrokealliance.org.au/",target="_target")))
                     )),
     hr(),
     tabsetPanel(type = "tabs",
@@ -280,38 +280,38 @@ ui <- fluidPage(
                                            tags$br(),
                                            "The list of sample size formulas provided are:",
                                            tags$br(), tags$b("Gen OR:"),
-                                           tags$a(href="https://support.sas.com/resources/papers/proceedings/proceedings/sugi31/209-31.pdf",
+                                           tags$a(href="https://support.sas.com/resources/papers/proceedings/proceedings/sugi31/209-31.pdf",target="_target",
                                                   "O’Brien, Ralph G., and John Castelloe.",
                                                   "\"Exploiting the link between the Wilcoxon-Mann-Whitney test and a simple odds statistic.\"",
                                                   tags$em("Proceedings of the Thirty-first Annual SAS Users Group International Conference."),
                                                   "Cary, NC: SAS Institute, 2006."),
                                            tags$br(), tags$b("WinP:"),
-                                           tags$a(href="",
+                                           tags$a(href="https://doi.org/10.1161/STROKEAHA.121.037744",target="_target",
                                              "Zou G., Zou L., and Choi Y-H.",
                                              "\"A Distribution-Free Approach to the Design and Analysis of Randomized Stroke Trials with the Modified Rankin Scale.\"",
                                              tags$em("Stroke"),"(2022)"
                                            ),
                                            tags$br(), tags$b("Win Ratio:"), tags$a(
-                                             href="https://doi.org/10.1002/sim.9297",
+                                             href="https://doi.org/10.1002/sim.9297",target="_target",
                                              "Yu, Ron Xiaolong, and Jitendra Ganju.,",
                                              "\"Sample size formula for a win ratio endpoint.\"",
                                              tags$em("Statistics in medicine"), "41.6 (2022): 950-963."
                                            ),
                                            tags$br(), tags$b("Wilcoxon-Mann-Whitney:"),
-                                           tags$a(href="",
+                                           tags$a(href="https://doi.org/10.1002/sim.4780122404",target="_target",
                                                   "Whitehead, John.",
                                                   "\"Sample size calculations for ordered categorical data.\"",
                                                   tags$em("Statistics in medicine"),
                                                   "12.24 (1993): 2257-2271."
                                                   ),
                                            tags$br(), tags$b("van Elteren test (stratified WMW):"),
-                                           tags$a(href="https://doi.org/10.1080/10543400802369020",
+                                           tags$a(href="https://doi.org/10.1080/10543400802369020",target="_target",
                                                   "Zhao, Yan D., Dewi Rahardja, and Yajun Mei.",
                                                   "\"Sample size calculation for the van Elteren test adjusting for ties.\"",
                                                   tags$em("Journal of Biopharmaceutical Statistics"), "18.6 (2008): 1112-1119."
                                                   ),
                                            tags$br(), tags$b("Tang's exact WMW power formula:"),
-                                           tags$a(href="https://doi.org/10.1002/sim.4407",
+                                           tags$a(href="https://doi.org/10.1002/sim.4407",target="_target",
                                                   "Tang, Yongqiang",
                                                   "\"Size and power estimation for the Wilcoxon–Mann–Whitney test for ordered categorical data.\"",
                                                   tags$em("Statistics in Medicine"), "30.29 (2011): 3461-3470."
@@ -332,7 +332,7 @@ ui <- fluidPage(
                                                              "The sample size formula used here is given by:",
                                                              tags$br(),
                                                              tags$a(
-                                                               href="https://doi.org/10.1002/sim.9297",
+                                                               href="https://doi.org/10.1002/sim.9297",target="_target",
                                                              "Yu, Ron Xiaolong, and Jitendra Ganju.,",
                                                              "\"Sample size formula for a win ratio endpoint.\"",
                                                              tags$em("Statistics in medicine"), "41.6 (2022): 950-963."
