@@ -6,8 +6,7 @@ data in stroke research.
 
 ## Instructions for Online Use
 
-An online version of this tool is available at [https://htjohns.com/apps/tmcalc/](https://htjohns.com/apps/tmcalc/)
-
+An online version of this tool is available at [https://www.thembc.com.au/tournamentmethods](https://www.thembc.com.au/tournamentmethods)
 
 ## Instructions for Download 
 
