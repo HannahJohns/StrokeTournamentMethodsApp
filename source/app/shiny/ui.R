@@ -55,7 +55,7 @@ ui <- fluidPage(
                                           textInput("power_treatmentName","Treatment group name",value="Treatment")
                                    ),
                                    column(width=6, offset=1,
-                                          sliderInput("power_nStrata","Numer of Strata",min=1,max=10,value=1,step=1)
+                                          sliderInput("power_nStrata","Number of Strata",min=1,max=10,value=1,step=1)
                                    ),
                                   fluidRow(
                                     column(width=3,offset=1,numericInput("power_alpha","Significance level (α)","0.05")),
@@ -138,84 +138,167 @@ ui <- fluidPage(
                                                      "specify the control distribution for each strata.",
                                                      "The same counterfactual table is used for each",
                                                      "strata.",
-                                                     "Instructions Here",
                                                      style="info")
                           ),
                           fluidRow(
                             uiOutput("power_sg_control")
                           ),
                           tags$hr(),
-                          fluidRow(column(width=3,"Percentage of mRS 0 under control that would have been:"),
-                                   column(width=8, splitLayout(
-                            numericInput("sg_0_0",label="mRS 0 under Treatment",value = 1),
-                            numericInput("sg_0_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_0_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_0_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_0_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_0_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_0_6",label="mRS 6 under Treatment",value = 0)
-                            ))
+                          fluidRow(
+                                    column(width=1,offset=1,tags$b("Percentage of mRS 0 under control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 1 under Control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 2 under Control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 3 under Control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 4 under Control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 5 under Control that would have been:")),
+                                    column(width=1,tags$b("Percentage of mRS 6 under Control that would have been:"))
+                                   ),
+                          fluidRow(
+                            column(width=1,tags$b("mRS 0 under Treatment")),
+                            column(width=1,numericInput("sg_0_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_0",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_0",label="",value = 1))
                           ),
-                          fluidRow(column(width=3,"Percentage of mRS 1 under control that would have been:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_1_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_1_1",label="mRS 1 under Treatment",value = 1),
-                            numericInput("sg_1_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_1_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_1_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_1_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_1_6",label="mRS 6 under Treatment",value = 0)
-                          ))),
-                          fluidRow(column(width=3,"Percentage of mRS 2 under control that would have been:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_2_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_2_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_2_2",label="mRS 2 under Treatment",value = 1),
-                            numericInput("sg_2_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_2_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_2_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_2_6",label="mRS 6 under Treatment",value = 0)
-                          ))),
-                          fluidRow(column(width=3,"Percentage of mRS 3 under control that would have been:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_3_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_3_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_3_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_3_3",label="mRS 3 under Treatment",value = 1),
-                            numericInput("sg_3_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_3_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_3_6",label="mRS 6 under Treatment",value = 0)
-                          ))),
-                          fluidRow(column(width=3,"Percentage of mRS 4 under control that would end up as:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_4_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_4_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_4_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_4_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_4_4",label="mRS 4 under Treatment",value = 1),
-                            numericInput("sg_4_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_4_6",label="mRS 6 under Treatment",value = 0)
-                          ))),
-                          fluidRow(column(width=3,"Percentage of mRS 5 under control that would have been:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_5_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_5_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_5_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_5_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_5_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_5_5",label="mRS 5 under Treatment",value = 1),
-                            numericInput("sg_5_6",label="mRS 6 under Treatment",value = 0)
-                          ))),
-                          fluidRow(column(width=3,"Percentage of mRS 6 under control that would have been:"),
-                                   column(width=8,splitLayout(
-                            numericInput("sg_6_0",label="mRS 0 under Treatment",value = 0),
-                            numericInput("sg_6_1",label="mRS 1 under Treatment",value = 0),
-                            numericInput("sg_6_2",label="mRS 2 under Treatment",value = 0),
-                            numericInput("sg_6_3",label="mRS 3 under Treatment",value = 0),
-                            numericInput("sg_6_4",label="mRS 4 under Treatment",value = 0),
-                            numericInput("sg_6_5",label="mRS 5 under Treatment",value = 0),
-                            numericInput("sg_6_6",label="mRS 6 under Treatment",value = 1)
-                          )))
+                          fluidRow(
+                            column(width=1,tags$b("mRS 1 under Treatment")),
+                            column(width=1,numericInput("sg_0_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_1",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_1",label="",value = 1))
+                          ),
+                          fluidRow(
+                            column(width=1,tags$b("mRS 2 under Treatment")),
+                            column(width=1,numericInput("sg_0_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_2",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_2",label="",value = 1))
+                          ),
+
+                          fluidRow(
+                            column(width=1,tags$b("mRS 3 under Treatment")),
+                            column(width=1,numericInput("sg_0_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_3",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_3",label="",value = 1))
+                          ),
+
+                          fluidRow(
+                            column(width=1,tags$b("mRS 4 under Treatment")),
+                            column(width=1,numericInput("sg_0_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_4",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_4",label="",value = 1))
+                          ),
+
+                          fluidRow(
+                            column(width=1,tags$b("mRS 5 under Treatment")),
+                            column(width=1,numericInput("sg_0_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_5",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_5",label="",value = 1))
+                          ),
+
+                          fluidRow(
+                            column(width=1,tags$b("mRS 6 under Treatment")),
+                            column(width=1,numericInput("sg_0_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_1_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_2_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_3_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_4_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_5_6",label="",value = 1)),
+                            column(width=1,numericInput("sg_6_6",label="",value = 1))
+                          )
+                          # tags$hr(),
+                          # fluidRow(column(width=3,"Percentage of mRS 0 under control that would have been:"),
+                          #          column(width=8, splitLayout(
+                          #   numericInput("sg_0_0",label="mRS 0 under Treatment",value = 1),
+                          #   numericInput("sg_0_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_0_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_0_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_0_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_0_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_0_6",label="mRS 6 under Treatment",value = 0)
+                          #   ))
+                          # ),
+                          # fluidRow(column(width=3,"Percentage of mRS 1 under control that would have been:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_1_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_1_1",label="mRS 1 under Treatment",value = 1),
+                          #   numericInput("sg_1_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_1_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_1_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_1_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_1_6",label="mRS 6 under Treatment",value = 0)
+                          # ))),
+                          # fluidRow(column(width=3,"Percentage of mRS 2 under control that would have been:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_2_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_2_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_2_2",label="mRS 2 under Treatment",value = 1),
+                          #   numericInput("sg_2_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_2_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_2_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_2_6",label="mRS 6 under Treatment",value = 0)
+                          # ))),
+                          # fluidRow(column(width=3,"Percentage of mRS 3 under control that would have been:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_3_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_3_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_3_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_3_3",label="mRS 3 under Treatment",value = 1),
+                          #   numericInput("sg_3_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_3_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_3_6",label="mRS 6 under Treatment",value = 0)
+                          # ))),
+                          # fluidRow(column(width=3,"Percentage of mRS 4 under control that would end up as:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_4_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_4_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_4_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_4_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_4_4",label="mRS 4 under Treatment",value = 1),
+                          #   numericInput("sg_4_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_4_6",label="mRS 6 under Treatment",value = 0)
+                          # ))),
+                          # fluidRow(column(width=3,"Percentage of mRS 5 under control that would have been:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_5_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_5_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_5_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_5_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_5_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_5_5",label="mRS 5 under Treatment",value = 1),
+                          #   numericInput("sg_5_6",label="mRS 6 under Treatment",value = 0)
+                          # ))),
+                          # fluidRow(column(width=3,"Percentage of mRS 6 under control that would have been:"),
+                          #          column(width=8,splitLayout(
+                          #   numericInput("sg_6_0",label="mRS 0 under Treatment",value = 0),
+                          #   numericInput("sg_6_1",label="mRS 1 under Treatment",value = 0),
+                          #   numericInput("sg_6_2",label="mRS 2 under Treatment",value = 0),
+                          #   numericInput("sg_6_3",label="mRS 3 under Treatment",value = 0),
+                          #   numericInput("sg_6_4",label="mRS 4 under Treatment",value = 0),
+                          #   numericInput("sg_6_5",label="mRS 5 under Treatment",value = 0),
+                          #   numericInput("sg_6_6",label="mRS 6 under Treatment",value = 1)
+                          # )))
                     ),
                     tabPanel("Proportional odds approach",
                              bsCollapse(id = "power_effect_polr_help",
