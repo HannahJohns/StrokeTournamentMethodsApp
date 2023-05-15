@@ -527,7 +527,7 @@ ui <- fluidPage(
                                 textInput("treatmentName","Treatment group name",value="Treatment")
                          ),
                          column(width=6, offset=1,
-                                sliderInput("nStrata","Numer of Strata",min=1,max=10,value=1,step=1)
+                                sliderInput("nStrata","Number of Strata",min=1,max=10,value=1,step=1)
                          )
                          ),
                          fluidRow(column(width=12,checkboxGroupInput("analysis_merge","",
